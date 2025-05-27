@@ -132,6 +132,7 @@ class ChatTemplateKwargs(BaseModel):
     Represents the arguments for a chat template.
     """
     enable_thinking: bool = Field(False, description="Whether to enable thinking mode")
+    add_generation_prompt: bool = Field(True, description="Whether to add a generation prompt to the response")
 
 # Non-streaming request and response
 class ChatCompletionRequest(ChatCompletionRequestBase):
