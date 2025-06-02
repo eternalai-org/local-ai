@@ -112,7 +112,7 @@ class LocalAIManager:
 
     def _get_family_template_and_practice(self, folder_name: str):
         """Helper to get template and best practice paths based on folder name."""
-        families = ["gemma", "qwen25", "qwen3", "llama"]
+        families = ["gemma", "qwen25", "qwen3", "llama", "deepseek-r1-0528-qwen3"]
         for family in families:
             if family in folder_name.lower():
                 return (
@@ -224,6 +224,9 @@ class LocalAIManager:
                     local_model_path, local_ai_port, host, context_length, template_path
                 )
             elif "deepseek-r1-0528-qwen3" in folder_name.lower():
+                print(
+                    "deepseek-r1-0528-qwen3 in folder_name"
+                )
                 template_path, best_practice_path = self._get_family_template_and_practice("deepseek-r1-0528-qwen3")
                 running_ai_command = self._build_ai_command(
                     local_model_path, local_ai_port, host, context_length, template_path, best_practice_path
