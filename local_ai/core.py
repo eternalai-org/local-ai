@@ -110,16 +110,12 @@ class LocalAIManager:
             logger.error(f"Error restarting AI service: {str(e)}", exc_info=True)
             return False
 
-    def _get_family_template_and_practice(self, folder_name: str):
+    def _get_family_template_and_practice(self, model_family: str):
         """Helper to get template and best practice paths based on folder name."""
-        families = ["gemma", "qwen25", "qwen3", "llama", "deepseek-r1-0528-qwen3"]
-        for family in families:
-            if family in folder_name.lower():
-                return (
-                    self._get_model_template_path(family),
-                    self._get_model_best_practice_path(family)
-                )
-        return (None, None)
+        return (
+            self._get_model_template_path(model_family),
+            self._get_model_best_practice_path(model_family)
+        )
     
     def _retry_request_json(self, url, retries=3, delay=5, timeout=10):
         """Utility to retry a GET request for JSON data."""
