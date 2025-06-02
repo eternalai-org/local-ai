@@ -212,6 +212,10 @@ class LocalAIManager:
                 except Exception as e:
                     logger.error(f"Error saving metadata file: {e}")
 
+            print(
+                "folder_name: ", folder_name
+            )
+
             if "gemma" in folder_name.lower():
                 template_path, best_practice_path = self._get_family_template_and_practice("gemma")
                 # Gemma models are memory intensive, so we reduce the context length
